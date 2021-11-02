@@ -4,3 +4,5 @@
 __pycache__/
 venv/
 MTQCserver/MTQCApp/migrations/
+.vscode
+MTQCserver/db.sqlite3
