@@ -5,4 +5,4 @@ from MTQCApp.models import User
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'email', 'password', 'token', 'verified', 'rol')
+        fields = ('id', 'email', 'password', 'verified', 'rol')

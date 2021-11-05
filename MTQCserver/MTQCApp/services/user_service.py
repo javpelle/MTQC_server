@@ -24,17 +24,15 @@ def login(login_data):
         return {"status": USER_NOT_VERIFIED}
 
     # If we have reached this point, the login is correct
-    user.token = security_service.generate_token(user.password)
-    logger.debug('User id: {0}. Token: {1}'.format(user.id, user.token))
-    user.save()
-    return {"status": SUCCESS, "token": user.token}
+    token = security_service.generate_token(user.id)
+    logger.debug('User id: {0}. Token: {1}'.format(user.id, token))
+    return {"status": SUCCESS, "token": token}
 
 
 def guest_login():
-    token = security_service.generate_token(str(randrange(100000, 999999)))
-
-    user = User(token=token)
+    user = User()
     user.save()
+    token = security_service.generate_token(user.id)
     return {"status": SUCCESS, "token": token}
 
 
